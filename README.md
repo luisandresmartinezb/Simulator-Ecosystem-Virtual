@@ -53,19 +53,24 @@ El sistema está diseñado siguiendo buenas prácticas de separación de respons
 ## Arquitectura del Proyecto
 
 
+```bash
 src/
+│
 ├── app/
-│ ├── components/
-│ │ ├── filter/
-│ │ ├── species-form/
-│ │ ├── species-list/
-│ │ └── statistics/
-│ ├── models/
-│ ├── pipes/
-│ ├── services/
-│ ├── app.ts
-│ ├── app.html
-│ └── app.css
+│   ├── components/
+│   │   ├── filter/
+│   │   ├── species-form/
+│   │   ├── species-list/
+│   │   └── statistics/
+│   │
+│   ├── models/
+│   ├── pipes/
+│   ├── services/
+│   │
+│   ├── app.ts
+│   ├── app.html
+│   └── app.css
+│
 ├── assets/
 └── main.ts
 

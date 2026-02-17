@@ -1,59 +1,102 @@
-# EcosystemSimulator
+# Simulador de Ecosistema Virtual
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+Aplicación desarrollada en **Angular (Standalone Components)** que permite gestionar especies dentro de un ecosistema virtual, aplicando filtros dinámicos, estadísticas en tiempo real y operaciones CRUD completas.
 
-## Development server
+##  Descripción del Proyecto
+El **Simulador de Ecosistema Virtual** permite:
 
-To start a local development server, run:
+- Crear nuevas especies
+- Editar especies existentes
+- Eliminar especies con confirmación
+- Reproducir especies (incremento automático según tasa de reproducción)
+- Filtrar por tipo y estado de conservación
+- Buscar especies por nombre
+- Visualizar estadísticas dinámicas del ecosistema
+
+El sistema está diseñado siguiendo buenas prácticas de separación de responsabilidades mediante:
+
+- Componentes independientes
+- Servicios
+- Pipes personalizados
+- Formularios reactivos
+- Validaciones
+- Confirmaciones de seguridad
+
+- ##  Funcionalidades Implementadas
+
+### Gestión de Especies (CRUD)
+- Crear especie
+- Editar especie
+- Eliminar con confirmación
+- Reproducir automáticamente según tasa %
+
+### Filtros Dinámicos
+- Filtro por tipo (Herbívoro, Carnívoro, Planta)
+- Filtro por estado (Saludable, Media, Crítico)
+- Buscador en tiempo real por nombre
+
+
+### Estadísticas en Tiempo Real
+- Total de especies
+- Población total acumulada
+- Número de especies en estado crítico
+
+### Validaciones
+- Campos obligatorios
+- Población ≥ 0
+- Reproducción entre 0% y 100%
+- Confirmación antes de eliminar
+- Confirmación antes de editar
+
+---
+
+## Arquitectura del Proyecto
+
+
+src/
+├── app/
+│ ├── components/
+│ │ ├── filter/
+│ │ ├── species-form/
+│ │ ├── species-list/
+│ │ └── statistics/
+│ ├── models/
+│ ├── pipes/
+│ ├── services/
+│ ├── app.ts
+│ ├── app.html
+│ └── app.css
+├── assets/
+└── main.ts
+
+
+## Tecnologías Utilizadas
+
+- Angular (Standalone Components)
+- TypeScript
+- Reactive Forms
+- Bootstrap
+- RxJS
+- Pipes personalizados
+- CSS personalizado
+- Git & GitHub
+
+
+
+## Instalación y Ejecución
+
+Clonar el repositorio:
 
 ```bash
-ng serve
-```
+git clone https://github.com/luisandresmartinezb/Simulator-Ecosystem-Virtual.git
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+En el fichero tsconfog.json añadir estas 3 lineas
+- "target": "ES2022",
+- "module": "esnext",
+- "moduleResolution": "node"
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

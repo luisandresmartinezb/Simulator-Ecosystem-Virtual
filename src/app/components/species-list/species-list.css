@@ -1,0 +1,74 @@
+.card {
+  background: rgba(255,255,255,.92);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+thead th {
+  text-align: left;
+  padding: 10px;
+  background: rgba(0,0,0,.06);
+}
+
+tbody td {
+  padding: 10px;
+  border-top: 1px solid rgba(0,0,0,.08);
+  vertical-align: middle;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.small {
+  padding: 7px 10px;
+}
+
+.danger {
+  background: rgba(255,0,0,.12);
+}
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.healthy {
+  background: rgba(0,128,0,.15);
+}
+
+.medium {
+  background: rgba(255,165,0,.20);
+}
+
+.critical {
+  background: rgba(255,0,0,.18);
+}

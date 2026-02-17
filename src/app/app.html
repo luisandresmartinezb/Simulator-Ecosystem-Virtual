@@ -1,0 +1,66 @@
+<div class="page">
+
+  <!-- CABECERA -->
+  <header class="topbar">
+    <h1 class="title">Simulador de Ecosistema Virtual</h1>
+
+    <div class="top-controls">
+      <!-- Filtros (tipo/estado/limpiar) -->
+      <app-filter (filtersChange)="onFiltersChange($event)"></app-filter>
+
+      <!-- Buscador -->
+      <div class="search">
+        <input type="text"
+               placeholder="Buscar especie..."
+               [(ngModel)]="searchText" />
+        <span class="icon">🔍</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CUERPO 2 COLUMNAS -->
+  <main class="grid">
+    <!-- IZQUIERDA: Lista -->
+    <section class="panel">
+      <h2 class="panel-title">Lista de Especies</h2>
+
+      <app-species-list [species]="species"
+                        [typeFilter]="typeFilter"
+                        [statusFilter]="statusFilter"
+                        [searchText]="searchText"
+                        (editId)="onEdit($event)"
+                        (deleteId)="onDelete($event)"
+                        (reproduceId)="onReproduce($event)">
+      </app-species-list>
+    </section>
+
+    <!-- DERECHA: Form -->
+    <section class="panel">
+      <h2 class="panel-title">Agregar / Editar Especie</h2>
+
+      <app-species-form [selected]="selectedSpecies"
+                        (saved)="onSaved()"
+                        (cancelled)="onCancelEdit()">
+      </app-species-form>
+    </section>
+  </main>
+
+  <!-- ESTADÍSTICAS ABAJO -->
+  <footer class="stats-row">
+    <div class="stat-card">
+      <div class="stat-title">Total de Especies</div>
+      <div class="stat-value">{{ species.length }}</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-title">Población Total</div>
+      <div class="stat-value">{{ getTotalPopulation() }}</div>
+    </div>
+
+    <div class="stat-card danger">
+      <div class="stat-title">Especies en Peligro</div>
+      <div class="stat-value">{{ getCriticalCount() }}</div>
+    </div>
+  </footer>
+
+</div>

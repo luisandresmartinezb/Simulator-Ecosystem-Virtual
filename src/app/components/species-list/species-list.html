@@ -1,0 +1,46 @@
+<div class="card">
+  <h2>Especies</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Población</th>
+        <th>Reproducción</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let s of (species | filterSpecies:typeFilter:statusFilter)">
+        <td>
+          <img class="avatar" [src]="'/assets/' + getImage(s.name)" alt="img">
+        </td>
+
+        <td class="name">{{ s.name }}</td>
+        <td>{{ s.type }}</td>
+
+        <td [style.color]="(s.conservationStatus || '') | conservationStatus">
+          {{ s.population | populationFormat }}
+        </td>
+
+        <td>{{ s.reproductionRate }}%</td>
+
+        <td>
+          <span class="badge" [ngClass]="badgeClass(s.conservationStatus)">
+            {{ s.conservationStatus }}
+          </span>
+        </td>
+
+        <td class="actions">
+          <button class="btn btn-sm btn-secondary" (click)="edit(s.id)">Editar</button>
+          <button class="btn btn-sm btn-outline-primary" (click)="reproduce(s.id)">Reproducir</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(s.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

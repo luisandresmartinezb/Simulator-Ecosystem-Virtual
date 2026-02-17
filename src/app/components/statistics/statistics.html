@@ -1,0 +1,37 @@
+<div class="stats-card">
+
+  <h2>Estadísticas del Ecosistema</h2>
+
+  <div class="stats-grid">
+
+    <!-- Total Especies -->
+    <div class="stat-box">
+      <div class="stat-label">Total de Especies</div>
+      <div class="stat-value">
+        {{ totalSpecies }}
+      </div>
+    </div>
+
+    <!-- Población Total -->
+    <div class="stat-box">
+      <div class="stat-label">Población Total</div>
+      <div class="stat-value">
+        {{ totalPopulation | populationFormat }}
+      </div>
+    </div>
+
+    <!-- Especies Críticas -->
+    <div class="stat-box">
+      <div class="stat-label">Especies en Estado Crítico</div>
+      <div class="stat-value"
+           [style.color]="'Crítico' | conservationStatus">
+        {{ criticalPercent }}%
+      </div>
+      <div class="stat-small">
+        {{ criticalCount }} especie(s) crítica(s)
+      </div>
+    </div>
+
+  </div>
+
+</div>

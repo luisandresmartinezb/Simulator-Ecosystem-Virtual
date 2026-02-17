@@ -1,0 +1,32 @@
+.form-card {
+  background: rgba(255,255,255,.92);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+  color: #111;
+}
+
+label {
+  font-weight: 700;
+  margin-top: 10px;
+  display: block;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #111;
+}
+
+.error {
+  color: #b00020;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.btn-row {
+  margin-top: 14px;
+}

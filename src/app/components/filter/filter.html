@@ -1,0 +1,23 @@
+<div class="filter-bar">
+
+  <label>Filtrar por tipo:</label>
+  <select [(ngModel)]="type" (change)="emitFilters()">
+    <option value="">Todos</option>
+    <option value="Herbívoro">Herbívoro</option>
+    <option value="Carnívoro">Carnívoro</option>
+    <option value="Planta">Planta</option>
+  </select>
+
+  <label>Estado:</label>
+  <select [(ngModel)]="status" (change)="emitFilters()">
+    <option value="">Todos</option>
+    <option value="Saludable">Saludable</option>
+    <option value="Media">Media</option>
+    <option value="Crítico">Crítico</option>
+  </select>
+
+  <button class="btn btn-light btn-sm" type="button" (click)="clear()">
+    Limpiar
+  </button>
+
+</div>

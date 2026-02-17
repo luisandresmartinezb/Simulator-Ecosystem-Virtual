@@ -1,0 +1,65 @@
+<div class="form-card">
+
+  <h2>{{ editingId ? 'Editar especie' : 'Nueva especie' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+
+    <!-- Nombre -->
+    <label>Nombre</label>
+    <input type="text" formControlName="name" placeholder="Ej: León, Perro, Tortuga..." />
+
+    <div class="error" *ngIf="form.get('name')?.touched">
+      <div *ngIf="form.get('name')?.errors?.['required']">
+        El nombre es obligatorio.
+      </div>
+      <div *ngIf="form.get('name')?.errors?.['minlength']">
+        Debe tener al menos 3 caracteres.
+      </div>
+      <div *ngIf="form.get('name')?.errors?.['pattern']">
+        Solo se permiten letras y espacios (sin números ni símbolos).
+      </div>
+    </div>
+
+    <!-- Tipo -->
+    <label>Tipo</label>
+    <select formControlName="type">
+      <option value="Herbívoro">Herbívoro</option>
+      <option value="Carnívoro">Carnívoro</option>
+      <option value="Planta">Planta</option>
+    </select>
+
+    <!-- Población -->
+    <label>Población</label>
+    <input type="number" formControlName="population" />
+    <div class="error" *ngIf="form.get('population')?.touched && form.get('population')?.invalid">
+      La población debe ser mayor o igual a 0.
+    </div>
+
+    <!-- Reproducción -->
+    <label>Tasa de Reproducción (%)</label>
+    <input type="number" formControlName="reproductionRate" />
+    <div class="error" *ngIf="form.get('reproductionRate')?.touched && form.get('reproductionRate')?.invalid">
+      La reproducción debe estar entre 0 y 100.
+    </div>
+
+    <!-- Estado -->
+    <label>Estado de Conservación</label>
+    <select formControlName="conservationStatus">
+      <option value="Saludable">Saludable</option>
+      <option value="Media">Media</option>
+      <option value="Crítico">Crítico</option>
+    </select>
+
+    <div style="margin-top: 12px;">
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+        {{ editingId ? 'Actualizar' : 'Guardar Especie' }}
+      </button>
+
+      <button *ngIf="editingId" class="btn btn-secondary ms-2" type="button" (click)="cancel()">
+        Cancelar
+      </button>
+    </div>
+
+  </form>
+
+</div>
